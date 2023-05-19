@@ -1,15 +1,18 @@
-package Data;
+package data;
+
+import logic.IdGenerator;
+
 public class Task {
     private int taskId;
     private String title;
     private String description;
     private String status;
 
-    public Task(int taskId, String title, String description, String status) {
-        this.taskId = taskId;
+    public Task(String title, String description) {
+        this.taskId = IdGenerator.getNextId();
         this.title = title;
         this.description = description;
-        this.status = status;
+        this.status = "NEW";
     }
 
     public int getTaskId() {
@@ -20,12 +23,23 @@ public class Task {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getStatus() {
         return status;
     }
-}
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}
